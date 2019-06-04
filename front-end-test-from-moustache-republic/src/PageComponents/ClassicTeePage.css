@@ -62,6 +62,10 @@
     margin: 0;
 }
 
+.size-label {
+    color: #222222;
+}
+
 .asterisk {
     color: #C90000;
 }
@@ -75,12 +79,15 @@
 
 }
 
-.size-option {
+.s-size, .m-size, .l-size {
     text-align: center;
     border: 1px solid #CCCCCC;
     padding: 5%;
     width: 20%;
+}
 
+.size-selected {
+    border: 3px solid #222222;
 }
 
 .add-to-cart {
