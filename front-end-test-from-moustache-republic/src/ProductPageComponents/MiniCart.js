@@ -1,5 +1,5 @@
 import React from 'react';
-import './ClassicTeePage.css';
+import './Content.css';
 
 class MiniCart extends React.Component {
 

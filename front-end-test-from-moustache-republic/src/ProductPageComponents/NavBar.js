@@ -1,5 +1,5 @@
 import React from 'react';
-import './ClassicTeePage.css';
+import './NavBar.css';
 import MiniCart from "./MiniCart";
 
 class NavBar extends React.Component {
