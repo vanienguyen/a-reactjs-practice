@@ -9,6 +9,11 @@ import React from 'react';
 
          this.state = {sizeSelected: 0};
 
+         this.addToCartOnMouseOver = this.addToCartOnMouseOver.bind(this);
+         this.addToCartOnMouseLeave = this.addToCartOnMouseLeave.bind(this);
+
+         this.state = {onMouseOver: false};
+
 
      }
 
@@ -22,6 +27,14 @@ import React from 'react';
 
      largeHovered() {
          this.setState({sizeSelected: 3})
+     }
+
+     addToCartOnMouseOver() {
+         this.setState({onMouseOver: !this.state.onMouseOver})
+     }
+
+     addToCartOnMouseLeave() {
+         this.setState({onMouseOver: !this.state.onMouseOver})
      }
 
 
@@ -50,6 +63,17 @@ import React from 'react';
              sizeLabelSelected = 'L';
 
          }
+
+         const addToCartOnMouseOver = this.state.onMouseOver;
+         const addToCartClass = ['add-to-cart'];
+
+         if(addToCartOnMouseOver) {
+             addToCartClass.push('hovered-add-to-cart');
+
+         } else {
+             addToCartClass[1] = '';
+         }
+
 
          return (
              <div className='content-container'>
@@ -93,7 +117,9 @@ import React from 'react';
                          <div className={large.join(' ')} onClick={this.largeHovered}> L </div>
                      </div>
 
-                     <div className='add-to-cart'>
+                     <div className={addToCartClass.join(' ')}
+                          onMouseOver={this.addToCartOnMouseOver}
+                          onMouseLeave={this.addToCartOnMouseLeave} >
                          Add to cart
                      </div>
 
