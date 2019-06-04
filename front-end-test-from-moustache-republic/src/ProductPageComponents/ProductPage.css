@@ -84,6 +84,12 @@
     border: 3px solid #222222;
 }
 
+.clicked-size-label {
+    background-color: #282c34;
+    color: white;
+    font-weight: bold;
+}
+
 .add-to-cart {
     color: #222222;
     text-align: center;
