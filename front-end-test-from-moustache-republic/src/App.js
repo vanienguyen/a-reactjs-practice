@@ -1,14 +1,14 @@
 import React from 'react';
 import './App.css';
-import NavBar from "./PageComponents/NavBar";
-import Content from "./PageComponents/Content";
+import NavBar from "./ProductPageComponents/NavBar";
+import Content from "./ProductPageComponents/Content";
+import ProductPage from "./ProductPageComponents/ProductPage";
 
 function App() {
   return (
     <div className="App">
 
-      <NavBar/>
-      <Content/>
+      <ProductPage/>
 
     </div>
   );
