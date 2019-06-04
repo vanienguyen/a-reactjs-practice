@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="07ff6637-2b91-420a-aa4d-2e3ff650cc50" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/front-end-test-from-moustache-republic/src/ProductPageComponents/MiniCart.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end-test-from-moustache-republic/src/ProductPageComponents/MiniCart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end-test-from-moustache-republic/src/ProductPageComponents/NavBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end-test-from-moustache-republic/src/ProductPageComponents/NavBar.js" afterDir="false" />
+    <list default="true" id="07ff6637-2b91-420a-aa4d-2e3ff650cc50" name="Default Changelist" comment="add cart functionality: &#10; - size selected is added to Mini Cart section&#10; - product quantity in Mini Cart increase as &#10; the same size product is added multiple times">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end-test-from-moustache-republic/src/ProductPageComponents/ProductPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end-test-from-moustache-republic/src/ProductPageComponents/ProductPage.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -17,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front-end-test-from-moustache-republic/src/ProductPageComponents/NavBar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" column="74" selection-start-line="31" selection-start-column="74" selection-end-line="31" selection-end-column="74" />
+            <state relative-caret-position="345">
+              <caret line="23" column="45" lean-forward="true" selection-start-line="23" selection-start-column="45" selection-end-line="23" selection-end-column="45" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -30,10 +29,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front-end-test-from-moustache-republic/src/ProductPageComponents/MiniCart.js">
+        <entry file="file://$PROJECT_DIR$/front-end-test-from-moustache-republic/src/ProductPageComponents/MiniCartItem.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="45" lean-forward="true" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+            <state relative-caret-position="315">
+              <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -41,11 +40,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/front-end-test-from-moustache-republic/src/ProductPageComponents/ProductPage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="705">
-              <caret line="47" selection-start-line="47" selection-end-line="47" />
+            <state relative-caret-position="75">
+              <caret line="5" column="24" lean-forward="true" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -108,9 +107,11 @@
         <option value="$PROJECT_DIR$/front-end-test-from-moustache-republic/src/ProductPageComponents/Content.css" />
         <option value="$PROJECT_DIR$/front-end-test-from-moustache-republic/src/App.js" />
         <option value="$PROJECT_DIR$/front-end-test-from-moustache-republic/src/ProductPageComponents/Content.js" />
-        <option value="$PROJECT_DIR$/front-end-test-from-moustache-republic/src/ProductPageComponents/ProductPage.js" />
         <option value="$PROJECT_DIR$/front-end-test-from-moustache-republic/src/ProductPageComponents/MiniCart.js" />
+        <option value="$PROJECT_DIR$/front-end-test-from-moustache-republic/src/ProductPageComponents/MiniCartItem.js" />
         <option value="$PROJECT_DIR$/front-end-test-from-moustache-republic/src/ProductPageComponents/NavBar.js" />
+        <option value="$PROJECT_DIR$/front-end-test-from-moustache-republic/src/ProductPageComponents/ErrorMessage.js" />
+        <option value="$PROJECT_DIR$/front-end-test-from-moustache-republic/src/ProductPageComponents/ProductPage.js" />
       </list>
     </option>
   </component>
@@ -211,7 +212,7 @@
       <option name="presentableId" value="Default" />
       <updated>1559609048573</updated>
       <workItem from="1559609050024" duration="52000" />
-      <workItem from="1559631744564" duration="10403000" />
+      <workItem from="1559631744564" duration="11874000" />
     </task>
     <task id="LOCAL-00001" summary="lift the state up to ProductPage component because NavBar and Content components share data">
       <created>1559639526826</created>
@@ -220,22 +221,29 @@
       <option name="project" value="LOCAL" />
       <updated>1559639526826</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add cart functionality: &#10; - size selected is added to Mini Cart section&#10; - product quantity in Mini Cart increase as &#10; the same size product is added multiple times">
+      <created>1559642685610</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1559642685610</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10455000" />
+    <option name="totallyTimeSpent" value="11926000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="925" y="23" width="994" height="1057" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23021583" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23021583" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32953367" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3284974" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3284974" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -273,7 +281,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="lift the state up to ProductPage component because NavBar and Content components share data" />
-    <option name="LAST_COMMIT_MESSAGE" value="lift the state up to ProductPage component because NavBar and Content components share data" />
+    <MESSAGE value="add cart functionality: &#10; - size selected is added to Mini Cart section&#10; - product quantity in Mini Cart increase as &#10; the same size product is added multiple times" />
+    <option name="LAST_COMMIT_MESSAGE" value="add cart functionality: &#10; - size selected is added to Mini Cart section&#10; - product quantity in Mini Cart increase as &#10; the same size product is added multiple times" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/front-end-test-from-moustache-republic/.gitignore">
@@ -327,20 +336,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front-end-test-from-moustache-republic/src/ProductPageComponents/ProductPage.js">
+    <entry file="file://$PROJECT_DIR$/front-end-test-from-moustache-republic/src/ProductPageComponents/MiniCartItem.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="47" selection-start-line="47" selection-end-line="47" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front-end-test-from-moustache-republic/src/ProductPageComponents/MiniCart.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="45" lean-forward="true" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+        <state relative-caret-position="315">
+          <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -349,8 +348,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/front-end-test-from-moustache-republic/src/ProductPageComponents/NavBar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="74" selection-start-line="31" selection-start-column="74" selection-end-line="31" selection-end-column="74" />
+        <state relative-caret-position="345">
+          <caret line="23" column="45" lean-forward="true" selection-start-line="23" selection-start-column="45" selection-end-line="23" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front-end-test-from-moustache-republic/src/ProductPageComponents/ErrorMessage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="8" lean-forward="true" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front-end-test-from-moustache-republic/src/ProductPageComponents/ProductPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="24" lean-forward="true" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

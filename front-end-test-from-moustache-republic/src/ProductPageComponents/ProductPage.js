@@ -30,7 +30,6 @@ class ProductPage extends React.Component {
             isSmallHovered: false,
             isMediumHovered: false,
             isLargeHovered: false,
-            sizeLabelHovered: '',
             isCartButtonHovered: false,
 
             isSSelected: false,
@@ -45,48 +44,45 @@ class ProductPage extends React.Component {
             numOfLSelected: 0,
             lClickedClass: '',
 
+            sizeLabelSelected: '',
+
+
         };
     }
 
     smallOnMouseOver() {
         this.setState({
             isSmallHovered: !this.state.isSmallHovered,
-            sizeLabelHovered: 'S',
         });
     }
 
     smallOnMouseLeave() {
         this.setState({
             isSmallHovered: !this.state.isSmallHovered,
-            sizeLabelHovered: '',
         });
     }
 
     mediumOnMouseOver() {
         this.setState({
             isMediumHovered: !this.state.isMediumHovered,
-            sizeLabelHovered: 'M',
         });
     }
 
     mediumOnMouseLeave() {
         this.setState({
             isMediumHovered: !this.state.isMediumHovered,
-            sizeLabelHovered: '',
         });
     }
 
     largeOnMouseOver() {
         this.setState({
             isLargeHovered: !this.state.isLargeHovered,
-            sizeLabelHovered: 'L',
         });
     }
 
     largeOnMouseLeave() {
         this.setState({
             isLargeHovered: !this.state.isLargeHovered,
-            sizeLabelHovered: '',
         });
     }
 
@@ -113,7 +109,8 @@ class ProductPage extends React.Component {
             isLSelected: false,
             sClickedClass: 'clicked-size-label',
             mClickedClass: '',
-            lClickedClass: ''
+            lClickedClass: '',
+            sizeLabelSelected: 'S',
         });
     }
 
@@ -124,7 +121,8 @@ class ProductPage extends React.Component {
             isLSelected: false,
             sClickedClass: '',
             mClickedClass: 'clicked-size-label',
-            lClickedClass: ''
+            lClickedClass: '',
+            sizeLabelSelected: 'M',
         });
     }
 
@@ -136,6 +134,7 @@ class ProductPage extends React.Component {
             sClickedClass: '',
             mClickedClass: '',
             lClickedClass: 'clicked-size-label',
+            sizeLabelSelected: 'L',
         });
     }
 
@@ -145,6 +144,7 @@ class ProductPage extends React.Component {
                 numOfSSelected: this.state.numOfSSelected + 1,
                 isSSelected: false,
                 sClickedClass: '',
+                sizeLabelSelected: '',
             });
 
         } else if (this.state.isMSelected) {
@@ -152,6 +152,7 @@ class ProductPage extends React.Component {
                 numOfMSelected: this.state.numOfMSelected + 1,
                 isMSelected: false,
                 mClickedClass: '',
+                sizeLabelSelected: ''
             });
 
         } else if (this.state.isLSelected) {
@@ -159,10 +160,13 @@ class ProductPage extends React.Component {
                 numOfLSelected: this.state.numOfLSelected + 1,
                 isLSelected: false,
                 lClickedClass: '',
+                sizeLabelSelected: ''
             });
+
+        } else {
+
         }
     }
-
 
     render() {
         const small = ['s-size', this.state.sClickedClass];
@@ -170,7 +174,7 @@ class ProductPage extends React.Component {
         const large = ['l-size', this.state.lClickedClass];
 
         const sizeSelectedClass = 'hovered-size-label';
-        const sizeLabelSelected =  this.state.sizeLabelHovered;
+        const sizeLabelSelected =  this.state.sizeLabelSelected;
 
 
         const isSmallHovered = this.state.isSmallHovered;
@@ -266,9 +270,6 @@ class ProductPage extends React.Component {
                             >
                                 Add to cart
                             </div>
-                            <div>Number of Small {this.state.numOfSSelected}</div>
-                            <div>Number of Medium {this.state.numOfMSelected}</div>
-                            <div>Number of Large {this.state.numOfLSelected}</div>
                         </div>
                     </div>
 
