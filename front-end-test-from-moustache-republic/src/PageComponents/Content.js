@@ -28,18 +28,24 @@ import React from 'react';
 
      render() {
          const sizeSelected = this.state.sizeSelected;
+
          const small = ['s-size'];
          const medium = ['m-size'];
          const large = ['l-size'];
 
+         let sizeLabelSelected;
+
          if(sizeSelected === 1) {
              small.push('size-selected');
+             sizeLabelSelected = 'S';
 
          } else if(sizeSelected === 2) {
              medium.push('size-selected');
+             sizeLabelSelected = 'M';
 
          } else if(sizeSelected === 3) {
              large.push('size-selected');
+             sizeLabelSelected = 'L';
 
          }
 
@@ -76,7 +82,7 @@ import React from 'react';
                          Size
                          <span className='asterisk'> * </span>
                          &nbsp;
-                         <span className='size-label'> S </span>
+                         <span className='size-label'> {sizeLabelSelected} </span>
                      </div>
 
                      <div className='size-container'>
