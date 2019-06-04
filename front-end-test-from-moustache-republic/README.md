@@ -1,5 +1,5 @@
 This is my first ReactJS project.
-Main features and funtionalities:
+Main features and functionalities:
 - Kinda responsive.
 - Add to Cart section: 
   + no size selected when page first loaded.
