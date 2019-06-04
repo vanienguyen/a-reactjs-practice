@@ -3,75 +3,100 @@ import React from 'react';
      constructor(props) {
          super(props);
 
-         this.smallHovered = this.smallHovered.bind(this);
-         this.mediumHovered = this.mediumHovered.bind(this);
-         this.largeHovered = this.largeHovered.bind(this);
+         this.smallOnMouseOver = this.smallOnMouseOver.bind(this);
+         this.smallOnMouseLeave = this.smallOnMouseLeave.bind(this);
 
-         this.state = {sizeSelected: 0};
+         this.mediumOnMouseOver = this.mediumOnMouseOver.bind(this);
+         this.mediumOnMouseLeave = this.mediumOnMouseLeave.bind(this);
+
+         this.largeOnMouseOver = this.largeOnMouseOver.bind(this);
+         this.largeOnMouseLeave = this.largeOnMouseLeave.bind(this);
 
          this.addToCartOnMouseOver = this.addToCartOnMouseOver.bind(this);
          this.addToCartOnMouseLeave = this.addToCartOnMouseLeave.bind(this);
 
-         this.state = {onMouseOver: false};
+         this.addClass = this.addClass.bind(this);
+
+         this.state = {
+             smallOnMouseOver: false,
+             mediumOnMouseOver: false,
+             largeOnMouseOver: false,
+             sizeLabelSelected: '',
+             cartButtonOnMouseOver: false
+         };
 
 
      }
 
-     smallHovered() {
-         this.setState({sizeSelected: 1})
+     smallOnMouseOver() {
+         this.setState({smallOnMouseOver: !this.state.smallOnMouseOver})
      }
 
-     mediumHovered() {
-         this.setState({sizeSelected: 2})
+     smallOnMouseLeave() {
+         this.setState({smallOnMouseOver: !this.state.smallOnMouseOver})
      }
 
-     largeHovered() {
-         this.setState({sizeSelected: 3})
+     mediumOnMouseOver() {
+         this.setState({mediumOnMouseOver: !this.state.mediumOnMouseOver})
      }
+
+     mediumOnMouseLeave() {
+         this.setState({mediumOnMouseOver: !this.state.mediumOnMouseOver})
+     }
+
+     largeOnMouseOver() {
+         this.setState({largeOnMouseOver: !this.state.largeOnMouseOver})
+     }
+
+     largeOnMouseLeave() {
+         this.setState({largeOnMouseOver: !this.state.largeOnMouseOver})
+     }
+
 
      addToCartOnMouseOver() {
-         this.setState({onMouseOver: !this.state.onMouseOver})
+         this.setState({cartButtonOnMouseOver: !this.state.cartButtonOnMouseOver})
      }
 
      addToCartOnMouseLeave() {
-         this.setState({onMouseOver: !this.state.onMouseOver})
+         this.setState({cartButtonOnMouseOver: !this.state.cartButtonOnMouseOver})
      }
 
+     addClass (thingOnMouseOver, arrayClass, className, sizeLabelSelected) {
+         if(thingOnMouseOver) {
+             arrayClass.push(className);
+             this.state.sizeLabelSelected = sizeLabelSelected;
 
+         } else {
+             arrayClass[1] = '';
+         }
+     }
 
      render() {
-         const sizeSelected = this.state.sizeSelected;
 
          const small = ['s-size'];
          const medium = ['m-size'];
          const large = ['l-size'];
 
          const sizeSelectedClass = 'hovered-size-label';
+         const sizeLabelSelected =  this.state.sizeLabelSelected;
 
-         let sizeLabelSelected;
+         const smallOnMouseOver = this.state.smallOnMouseOver;
+         const mediumOnMouseOver = this.state.mediumOnMouseOver;
+         const largeOnMouseOver = this.state.largeOnMouseOver;
 
-         if(sizeSelected === 1) {
-             small.push(sizeSelectedClass);
-             sizeLabelSelected = 'S';
+         this.addClass(smallOnMouseOver, small, sizeSelectedClass, 'S');
+         this.addClass(mediumOnMouseOver, medium, sizeSelectedClass, 'M');
+         this.addClass(largeOnMouseOver, large, sizeSelectedClass, 'L');
 
-         } else if(sizeSelected === 2) {
-             medium.push(sizeSelectedClass);
-             sizeLabelSelected = 'M';
 
-         } else if(sizeSelected === 3) {
-             large.push(sizeSelectedClass);
-             sizeLabelSelected = 'L';
+         const cartButtonOnMouseOver = this.state.cartButtonOnMouseOver;
+         const cartButtonClass = ['add-to-cart'];
 
-         }
-
-         const addToCartOnMouseOver = this.state.onMouseOver;
-         const addToCartClass = ['add-to-cart'];
-
-         if(addToCartOnMouseOver) {
-             addToCartClass.push('hovered-add-to-cart');
+         if(cartButtonOnMouseOver) {
+             cartButtonClass.push('hovered-add-to-cart');
 
          } else {
-             addToCartClass[1] = '';
+             cartButtonClass[1] = '';
          }
 
 
@@ -112,12 +137,26 @@ import React from 'react';
                      </div>
 
                      <div className='size-container'>
-                         <div className={small.join(' ')} onClick={this.smallHovered}> S </div>
-                         <div className={medium.join(' ')} onClick={this.mediumHovered}> M </div>
-                         <div className={large.join(' ')} onClick={this.largeHovered}> L </div>
+                         <div className={small.join(' ')} name = 'smallOnMouseOver'
+                              onMouseOver={this.smallOnMouseOver}
+                              onMouseLeave={this.smallOnMouseLeave} >
+                             S
+                         </div>
+
+                         <div className={medium.join(' ')}
+                              onMouseOver={this.mediumOnMouseOver}
+                              onMouseLeave={this.mediumOnMouseLeave} >
+                             M
+                         </div>
+
+                         <div className={large.join(' ')}
+                              onMouseOver={this.largeOnMouseOver}
+                              onMouseLeave={this.largeOnMouseLeave}>
+                             L
+                         </div>
                      </div>
 
-                     <div className={addToCartClass.join(' ')}
+                     <div className={cartButtonClass.join(' ')}
                           onMouseOver={this.addToCartOnMouseOver}
                           onMouseLeave={this.addToCartOnMouseLeave} >
                          Add to cart
