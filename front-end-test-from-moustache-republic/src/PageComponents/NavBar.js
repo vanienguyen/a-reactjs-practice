@@ -22,7 +22,9 @@ class NavBar extends React.Component {
 
         return (
             <div className="dropdown" style={{float: 'right'}}>
-                <button className="dropbtn">My Cart ({numOfItems})</button>
+                <button className="dropbtn">
+                    My Cart ({numOfItems})
+                </button>
                 <div className="dropdown-content">
                     <div>
                         <MiniCart />
