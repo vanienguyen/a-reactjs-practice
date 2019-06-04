@@ -1,11 +1,16 @@
 import React from 'react';
+import './ClassicTeePage.css';
 
-function NavBar() {
-    return (
-        <div>
-            NavBar is here!!
-        </div>
-    );
+class NavBar extends React.Component {
+
+    render() {
+        const numOfItems = 0;
+        return (
+            <div className='nav-bar'>
+                <div> My Cart ({numOfItems})</div>
+            </div>
+        );
+    }
 }
 
 export default NavBar;
