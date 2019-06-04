@@ -44,6 +44,7 @@ class ProductPage extends React.Component {
             isLSelected: false,
             numOfLSelected: 0,
             lClickedClass: '',
+
         };
     }
 
@@ -193,10 +194,10 @@ class ProductPage extends React.Component {
         return (
             <div className='container-fluid'>
                 <NavBar numOfSmallTee={this.state.numOfSSelected}
-                        numOfMediumlTee={this.state.numOfMSelected}
+                        numOfMediumTee={this.state.numOfMSelected}
                         numOfLargeTee={this.state.numOfLSelected}
                 />
-                
+
                 <div className='content-container container-fluid'>
                     <div className='row'>
                         <div className='product-image-container col-lg'>

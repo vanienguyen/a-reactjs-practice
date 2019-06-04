@@ -1,24 +1,24 @@
 import React from 'react';
 import './NavBar.css';
-import MiniCart from "./MiniCart";
+import MiniCartItem from "./MiniCartItem";
 
 class NavBar extends React.Component {
-    constructor(props) {
-        super(props);
 
-        this.cartOnMouseOver = this.cartOnMouseOver.bind(this);
-
-        this.state = {cartOnMouseOver: false}
-
-    }
-
-    cartOnMouseOver() {
-        this.setState({cartOnMouseOver: !this.state.cartOnMouseOver})
+    displayMiniCart(num, label) {
+        if(num !== 0) {
+            return(
+                <MiniCartItem numOfItems={num}
+                              sizeLabel={label}/>
+            )};
     }
 
     render() {
-        const numOfItems = 0;
-        let miniCart;
+
+        const numOfSmallTee = this.props.numOfSmallTee;
+        const numOfMediumTee = this.props.numOfMediumTee;
+        const numOfLargeTee = this.props.numOfLargeTee;
+
+        let numOfItems = numOfSmallTee + numOfMediumTee + numOfLargeTee;
 
         return (
             <div className='container-fluid'>
@@ -28,11 +28,14 @@ class NavBar extends React.Component {
                     </button>
                     <div className="my-cart-dropdown-content">
                         <div>
-                            <MiniCart />
+                            <div className='mini-cart container-fluid'>
+                                {this.displayMiniCart(numOfSmallTee, 'S')}
+                                {this.displayMiniCart(numOfMediumTee, 'M')}
+                                {this.displayMiniCart(numOfLargeTee, 'L')}
+                            </div>
                         </div>
                     </div>
-            </div>
-
+                </div>
             </div>
         );
     }
