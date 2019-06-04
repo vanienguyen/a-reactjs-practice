@@ -3,24 +3,24 @@ import React from 'react';
      constructor(props) {
          super(props);
 
-         this.smallSelect = this.smallSelect.bind(this);
-         this.mediumSelect = this.mediumSelect.bind(this);
-         this.largeSelect = this.largeSelect.bind(this);
+         this.smallHovered = this.smallHovered.bind(this);
+         this.mediumHovered = this.mediumHovered.bind(this);
+         this.largeHovered = this.largeHovered.bind(this);
 
          this.state = {sizeSelected: 0};
 
 
      }
 
-     smallSelect() {
+     smallHovered() {
          this.setState({sizeSelected: 1})
      }
 
-     mediumSelect() {
+     mediumHovered() {
          this.setState({sizeSelected: 2})
      }
 
-     largeSelect() {
+     largeHovered() {
          this.setState({sizeSelected: 3})
      }
 
@@ -33,18 +33,20 @@ import React from 'react';
          const medium = ['m-size'];
          const large = ['l-size'];
 
+         const sizeSelectedClass = 'hovered-size-label';
+
          let sizeLabelSelected;
 
          if(sizeSelected === 1) {
-             small.push('size-selected');
+             small.push(sizeSelectedClass);
              sizeLabelSelected = 'S';
 
          } else if(sizeSelected === 2) {
-             medium.push('size-selected');
+             medium.push(sizeSelectedClass);
              sizeLabelSelected = 'M';
 
          } else if(sizeSelected === 3) {
-             large.push('size-selected');
+             large.push(sizeSelectedClass);
              sizeLabelSelected = 'L';
 
          }
@@ -86,9 +88,9 @@ import React from 'react';
                      </div>
 
                      <div className='size-container'>
-                         <div className={small.join(' ')} onClick={this.smallSelect}> S </div>
-                         <div className={medium.join(' ')} onClick={this.mediumSelect}> M </div>
-                         <div className={large.join(' ')} onClick={this.largeSelect}> L </div>
+                         <div className={small.join(' ')} onClick={this.smallHovered}> S </div>
+                         <div className={medium.join(' ')} onClick={this.mediumHovered}> M </div>
+                         <div className={large.join(' ')} onClick={this.largeHovered}> L </div>
                      </div>
 
                      <div className='add-to-cart'>
