@@ -1,4 +1,6 @@
 import React from 'react';
+import './Content.css';
+
  class Content extends React.Component {
      constructor(props) {
          super(props);
@@ -101,67 +103,67 @@ import React from 'react';
 
 
          return (
-             <div className='content-container'>
-
-                 <div className='product-image-container'>
-                     <img src={require('./classic-tee.jpg')}
-                          alt='A classic tee image is here!!'
-                          className='product-image'/>
-                 </div>
-
-                 <div className='product-info-container'>
-
-                     <div className='product-name'>
-                         Classic Tee
+             <div className='content-container container-fluid'>
+                 <div className='row'>
+                     <div className='product-image-container col-lg'>
+                         <img src={require('./classic-tee.jpg')}
+                              alt='A classic tee image is here!!'
+                              className='product-image'/>
                      </div>
 
-                     <div className='product-price'>
-                         $75.00
-                     </div>
+                     <div className='product-info-container col-lg'>
 
-                     <div className='product-description'>
-
-                         Dolor sit amet, consectetur adipiscing elit.
-                         Haec et tu ita posuisti, et verba vestra sunt. Quod autem ratione
-                         est, id officium appellamus dolor sit amet, consectetur adipiscing elit.
-                         Haec et tu ita posuisti, et verba vestra sunt. Quod autem ratione actum
-                         est, id officium appellamus
-
-                     </div>
-
-                     <div className='size-word'>
-                         Size
-                         <span className='asterisk'> * </span>
-                         &nbsp;
-                         <span className='size-label'> {sizeLabelSelected} </span>
-                     </div>
-
-                     <div className='size-container'>
-                         <div className={small.join(' ')} name = 'smallOnMouseOver'
-                              onMouseOver={this.smallOnMouseOver}
-                              onMouseLeave={this.smallOnMouseLeave} >
-                             S
+                         <div className='product-name'>
+                             Classic Tee
                          </div>
 
-                         <div className={medium.join(' ')}
-                              onMouseOver={this.mediumOnMouseOver}
-                              onMouseLeave={this.mediumOnMouseLeave} >
-                             M
+                         <div className='product-price'>
+                             $75.00
                          </div>
 
-                         <div className={large.join(' ')}
-                              onMouseOver={this.largeOnMouseOver}
-                              onMouseLeave={this.largeOnMouseLeave}>
-                             L
+                         <div className='product-description'>
+
+                             Dolor sit amet, consectetur adipiscing elit.
+                             Haec et tu ita posuisti, et verba vestra sunt. Quod autem ratione
+                             est, id officium appellamus dolor sit amet, consectetur adipiscing elit.
+                             Haec et tu ita posuisti, et verba vestra sunt. Quod autem ratione actum
+                             est, id officium appellamus
+
+                         </div>
+
+                         <div className='size-word'>
+                             Size
+                             <span className='asterisk'> * </span>
+                             &nbsp;
+                             <span className='size-label'> {sizeLabelSelected} </span>
+                         </div>
+
+                         <div className='size-container'>
+                             <div className={small.join(' ')} name = 'smallOnMouseOver'
+                                  onMouseOver={this.smallOnMouseOver}
+                                  onMouseLeave={this.smallOnMouseLeave} >
+                                 S
+                             </div>
+
+                             <div className={medium.join(' ')}
+                                  onMouseOver={this.mediumOnMouseOver}
+                                  onMouseLeave={this.mediumOnMouseLeave} >
+                                 M
+                             </div>
+
+                             <div className={large.join(' ')}
+                                  onMouseOver={this.largeOnMouseOver}
+                                  onMouseLeave={this.largeOnMouseLeave}>
+                                 L
+                             </div>
+                         </div>
+
+                         <div className={cartButtonClass.join(' ')}
+                              onMouseOver={this.addToCartOnMouseOver}
+                              onMouseLeave={this.addToCartOnMouseLeave} >
+                             Add to cart
                          </div>
                      </div>
-
-                     <div className={cartButtonClass.join(' ')}
-                          onMouseOver={this.addToCartOnMouseOver}
-                          onMouseLeave={this.addToCartOnMouseLeave} >
-                         Add to cart
-                     </div>
-
                  </div>
              </div>
          );

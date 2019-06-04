@@ -21,15 +21,18 @@ class NavBar extends React.Component {
         let miniCart;
 
         return (
-            <div className="dropdown" style={{float: 'right'}}>
-                <button className="dropbtn">
-                    My Cart ({numOfItems})
-                </button>
-                <div className="dropdown-content">
-                    <div>
-                        <MiniCart />
+            <div className='container-fluid'>
+                <div className="my-cart-dropdown" style={{float: 'right'}}>
+                    <button className="my-cart-button">
+                        My Cart ({numOfItems})
+                    </button>
+                    <div className="my-cart-dropdown-content">
+                        <div>
+                            <MiniCart />
+                        </div>
                     </div>
-                </div>
+            </div>
+
             </div>
         );
     }

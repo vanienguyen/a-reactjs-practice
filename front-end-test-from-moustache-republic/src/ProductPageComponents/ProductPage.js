@@ -18,7 +18,7 @@ class ProductPage extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className='container-fluid'>
                 <NavBar/>
                 <Content/>
             </div>
