@@ -6,17 +6,8 @@ class ProductPage extends React.Component {
     constructor(props) {
         super(props);
 
-        this.smallOnMouseOver = this.smallOnMouseOver.bind(this);
-        this.smallOnMouseLeave = this.smallOnMouseLeave.bind(this);
-
-        this.mediumOnMouseOver = this.mediumOnMouseOver.bind(this);
-        this.mediumOnMouseLeave = this.mediumOnMouseLeave.bind(this);
-
-        this.largeOnMouseOver = this.largeOnMouseOver.bind(this);
-        this.largeOnMouseLeave = this.largeOnMouseLeave.bind(this);
-
-        this.addToCartOnMouseOver = this.addToCartOnMouseOver.bind(this);
-        this.addToCartOnMouseLeave = this.addToCartOnMouseLeave.bind(this);
+        this.onMouseOver = this.onMouseOver.bind(this);
+        this.onMouseLeave = this.onMouseLeave.bind(this);
 
         this.addHoveredClass = this.addHoveredClass.bind(this);
 
@@ -27,10 +18,25 @@ class ProductPage extends React.Component {
         this.cartButtonOnClick = this.cartButtonOnClick.bind(this);
 
         this.state = {
-            isSmallHovered: false,
-            isMediumHovered: false,
-            isLargeHovered: false,
-            isCartButtonHovered: false,
+            small: {
+                isHovered: false,
+                isClicked: false,
+            },
+
+            medium: {
+                isHovered: false,
+                isClicked: false
+            },
+
+            large: {
+                isHovered: false,
+                isClicked: false
+            },
+
+            addToCart: {
+                isHovered: false,
+                isClicked: false
+            },
 
             isSSelected: false,
             numOfSSelected: 0,
@@ -50,48 +56,20 @@ class ProductPage extends React.Component {
         };
     }
 
-    smallOnMouseOver() {
+    onMouseOver(e) {
         this.setState({
-            isSmallHovered: !this.state.isSmallHovered,
+            [e.target.getAttribute('name')]: {
+                isHovered : !this.state[e.target.getAttribute('name')].isHovered,
+            }
         });
     }
 
-    smallOnMouseLeave() {
+    onMouseLeave(e) {
         this.setState({
-            isSmallHovered: !this.state.isSmallHovered,
+            [e.target.getAttribute('name')]: {
+                isHovered : !this.state[e.target.getAttribute('name')].isHovered,
+            }
         });
-    }
-
-    mediumOnMouseOver() {
-        this.setState({
-            isMediumHovered: !this.state.isMediumHovered,
-        });
-    }
-
-    mediumOnMouseLeave() {
-        this.setState({
-            isMediumHovered: !this.state.isMediumHovered,
-        });
-    }
-
-    largeOnMouseOver() {
-        this.setState({
-            isLargeHovered: !this.state.isLargeHovered,
-        });
-    }
-
-    largeOnMouseLeave() {
-        this.setState({
-            isLargeHovered: !this.state.isLargeHovered,
-        });
-    }
-
-    addToCartOnMouseOver() {
-        this.setState({isCartButtonHovered: !this.state.isCartButtonHovered})
-    }
-
-    addToCartOnMouseLeave() {
-        this.setState({isCartButtonHovered: !this.state.isCartButtonHovered})
     }
 
     addHoveredClass (mouseEvent, arrayClass, className) {
@@ -101,6 +79,7 @@ class ProductPage extends React.Component {
             arrayClass[2] = '';
         }
     }
+
 
     smallOnClick() {
         this.setState({
@@ -168,25 +147,21 @@ class ProductPage extends React.Component {
         }
     }
 
+
     render() {
         const small = ['s-size', this.state.sClickedClass];
         const medium = ['m-size', this.state.mClickedClass];
         const large = ['l-size', this.state.lClickedClass];
 
-        const sizeSelectedClass = 'hovered-size-label';
-        const sizeLabelSelected =  this.state.sizeLabelSelected;
+        const hoveredSizeClass = 'hovered-size-label';
+        const selectedSizeValue =  this.state.sizeLabelSelected;
+
+        this.addHoveredClass(this.state.small.isHovered, small, hoveredSizeClass);
+        this.addHoveredClass(this.state.medium.isHovered, medium, hoveredSizeClass);
+        this.addHoveredClass(this.state.large.isHovered, large, hoveredSizeClass);
 
 
-        const isSmallHovered = this.state.isSmallHovered;
-        const mediumOnMouseOver = this.state.isMediumHovered;
-        const largeOnMouseOver = this.state.isLargeHovered;
-
-        this.addHoveredClass(isSmallHovered, small, sizeSelectedClass);
-        this.addHoveredClass(mediumOnMouseOver, medium, sizeSelectedClass);
-        this.addHoveredClass(largeOnMouseOver, large, sizeSelectedClass);
-
-
-        const cartButtonOnMouseOver = this.state.isCartButtonHovered;
+        const cartButtonOnMouseOver = this.state.addToCart.isHovered;
         const cartButtonClass = ['add-to-cart'];
 
         if(cartButtonOnMouseOver) {
@@ -234,29 +209,32 @@ class ProductPage extends React.Component {
                                 Size
                                 <span className='asterisk'> * </span>
                                 &nbsp;
-                                <span className='size-label'> {sizeLabelSelected} </span>
+                                <span className='size-label'> {selectedSizeValue} </span>
                             </div>
 
                             <div className='size-container'>
                                 <div className={small.join(' ')}
-                                     onMouseOver={this.smallOnMouseOver}
-                                     onMouseLeave={this.smallOnMouseLeave}
+                                     name = 'small'
+                                     onMouseOver={this.onMouseOver}
+                                     onMouseLeave={this.onMouseLeave}
                                      onClick={this.smallOnClick}
                                 >
                                     S
                                 </div>
 
                                 <div className={medium.join(' ')}
-                                     onMouseOver={this.mediumOnMouseOver}
-                                     onMouseLeave={this.mediumOnMouseLeave}
+                                     name = 'medium'
+                                     onMouseOver={this.onMouseOver}
+                                     onMouseLeave={this.onMouseLeave}
                                      onClick={this.mediumOnClick}
                                 >
                                     M
                                 </div>
 
                                 <div className={large.join(' ')}
-                                     onMouseOver={this.largeOnMouseOver}
-                                     onMouseLeave={this.largeOnMouseLeave}
+                                     name = 'large'
+                                     onMouseOver={this.onMouseOver}
+                                     onMouseLeave={this.onMouseLeave}
                                      onClick={this.largeOnClick}
                                 >
                                     L
@@ -264,8 +242,9 @@ class ProductPage extends React.Component {
                             </div>
 
                             <div className={cartButtonClass.join(' ')}
-                                 onMouseOver={this.addToCartOnMouseOver}
-                                 onMouseLeave={this.addToCartOnMouseLeave}
+                                 name = 'addToCart'
+                                 onMouseOver={this.onMouseOver}
+                                 onMouseLeave={this.onMouseLeave}
                                  onClick={this.cartButtonOnClick}
                             >
                                 Add to cart
